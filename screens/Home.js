@@ -46,7 +46,7 @@ const Home = ({ navigation }) => {
         <View style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          width: "80",
+          width: 80,
           marginRight: 20,
         }}>
         <TouchableOpacity activeOpacity={0.5}>
@@ -55,7 +55,7 @@ const Home = ({ navigation }) => {
         <TouchableOpacity activeOpacity={0.5}>
          <SimpleLineIcons onPress={()=>{
           navigation.navigate("AddChat")
-         }} name='pencil' size={24} style={{marginLeft: "20px"}} color="black" />
+         }} name='pencil' size={24} style={{marginLeft: 20}} color="black" />
         </TouchableOpacity>
         </View>
       )
