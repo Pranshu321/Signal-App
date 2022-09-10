@@ -1,8 +1,7 @@
-import { Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View , ScrollView} from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { Avatar } from 'react-native-elements'
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-web';
 import { TextInput } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
 import { db, auth } from '../firebase';
@@ -20,18 +19,11 @@ const ChatsScreen = ({ navigation, route }) => {
             headerTitle: () => (
                 <View style={{
                     flexDirection: "row",
-                    alignItems: "center"
+                    alignItems: "center",
                 }}>
                     <Avatar rounded source={{ uri: Messgaes[0]?.data.photoURL || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" }} />
-                    <Text style={{ color: "white", marginLeft: 10, fontWeight: "700" }}>{route.params.chatname}</Text>
+                    <Text style={{ color: "white", marginLeft: 7, fontWeight: "700" , textTransform:"uppercase" }}>{route.params.chatname}</Text>
                 </View>
-            ),
-            headerLeft: () => (
-                <TouchableOpacity style={{
-                    marginLeft: 10,
-                }} onPress={() => navigation.goBack()}>
-                    <AntDesign name='arrowleft' size={24} color='white' />
-                </TouchableOpacity>
             ),
             headerRight: () => (
                 <View style={{
@@ -78,12 +70,10 @@ const ChatsScreen = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-            {/* <StatusBar sty /> */}
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
                 style={styles.container}
                 keyboardVerticalOffset={90}
             >
-
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <>
                         <ScrollView contentContainerStyle={{ paddingTop: 15 }} >
@@ -145,13 +135,13 @@ export default ChatsScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
     footer: {
         flexDirection: "row",
         alignItems: "center",
         width: "100%",
-        padding: 15
+        padding: 20,
+        // marginTop: 40
     },
     textInput: {
         fontWeight: "600",

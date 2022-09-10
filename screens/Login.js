@@ -10,7 +10,7 @@ const Login = ({ navigation }) => {
     useEffect(() => {
         const unsuscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                navigation.replace("Home");
+                navigation.navigate("Home");
             }
         });
 
