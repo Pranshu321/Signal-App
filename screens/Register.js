@@ -29,7 +29,7 @@ const Register = ({ navigation }) => {
                 }).catch((err) => {
                     console.log(err);
                 });
-                navigation.navigate("Login");
+                navigation.replace("Login");
                 Alert.alert("Successfully Registered");
                
             })
